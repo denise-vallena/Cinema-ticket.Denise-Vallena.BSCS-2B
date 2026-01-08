@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cinema — Browse Movies</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <header class="site-header">
+      <h1>Now Showing</h1>
+      <p class="sub">Browse movies — click a card to view details and buy tickets</p>
+      <!-- admin link (revealed by JS if user is admin) -->
+      <div style="margin-top:6px;display:flex;gap:8px;align-items:center">
+        <a id="adminLink" href="index.php" class="btn" style="display:none;background:#222;color:#fff;padding:8px 10px;border-radius:8px;text-decoration:none">Admin</a>
+      </div>
+    </header>
+
+    <section class="card list-card movies-top">
+      <h2>Movies</h2>
+      <div id="moviesRow" class="movies-row"></div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-note">This page fetches live data from the backend `fetch.php`.</div>
+      <form action="logout.php" method="post" style="margin:0;">
+        <button type="submit" class="btn logout">Log out</button>
+      </form>
+    </footer>
+  </main>
+
+  <div id="movieModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button id="modalClose" class="modal-close">×</button>
+      <h3 id="modalTitle"></h3>
+      <p id="modalMeta" class="meta"></p>
+      <p id="modalDescription"></p>
+      <div class="modal-actions">
+        <button id="buyBtn" class="btn primary">Buy Ticket</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
